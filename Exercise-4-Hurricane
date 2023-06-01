@@ -1,0 +1,64 @@
+/* Exercise 4 - Hurricane
+The Saffir-Simpson Hurricane Scale classifies hurricanes into five categories
+numbered 1 through 5. Write an application named Hurricane that outputs a
+hurricane’s category based on the user’s input of the wind speed. Category 5
+hurricanes have sustained winds of at least 157 miles per hour. The minimum
+sustained wind speeds for categories 4 through 1 are 130, 111, 96, and 74 miles
+per hour, respectively. Any storm with winds of less than 74 miles per hour is
+not a hurricane.
+  Program Requirement:
+  - Display hurricane category based on wind speed.
+*/
+
+//Prgrammer: ProgrammerFromMars
+
+using System;
+using static System.Console;
+namespace Exercise4
+{
+  class Hurricane
+  {
+    static void Main(string[] args)
+    {
+      // Variable Declaration
+      const int CATEGORY5_WINDSPEED = 157; 
+      const int CATEGORY4_WINDSPEED = 130; 
+      const int CATEGORY3_WINDSPEED = 111; 
+      const int CATEGORY2_WINDSPEED = 96; 
+      const int CATEGORY1_WINDSPEED = 74; 
+      int windSpeed;
+      
+      //Get wind speed from the user (User input)
+      Write("\nENTER WIND SPEED (m/h) >> ");
+      windSpeed = Convert.ToInt32(ReadLine());
+      WriteLine();
+      
+      //Test user input wind speed with wind speeds of the given categories
+      if ((windSpeed >= CATEGORY1_WINDSPEED) && (windSpeed < CATEGORY2_WINDSPEED))
+      {
+        WriteLine("HURRICANE: CATEGORY 1");
+      }
+      else if ((windSpeed >= CATEGORY2_WINDSPEED) && (windSpeed < CATEGORY3_WINDSPEED))
+      {
+        WriteLine("HURRICANE: CATEGORY 2");
+      }
+      else if ((windSpeed >= CATEGORY3_WINDSPEED) && (windSpeed < CATEGORY4_WINDSPEED))
+      {
+        WriteLine("HURRICANE: CATEGORY 3");
+      }
+      else if ((windSpeed >= CATEGORY4_WINDSPEED) && (windSpeed < CATEGORY5_WINDSPEED))
+      {
+        WriteLine("HURRICANE: CATEGORY 4");
+      }
+      else if (windSpeed >= CATEGORY5_WINDSPEED)
+      {
+        WriteLine("HURRICANE: CATEGORY 5");
+      }
+      else
+      {
+        WriteLine("NOT A HURRICANE");
+      }
+      ReadLine(); //System Pause
+    }
+  }
+}
