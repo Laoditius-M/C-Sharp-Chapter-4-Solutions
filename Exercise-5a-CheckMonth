@@ -1,0 +1,37 @@
+/*----------------------- Exercise 5A - CheckMonth ------------------------------ \
+Write a program named CheckMonth that prompts a user to enter a birth month.
+If the value entered is greater than 12 or less than 1, display an error
+message;
+otherwise, display the valid month with a message such as 3 is a valid month
+*/
+
+//Programmer: PogrammerFromMars
+
+using System;
+using static System.Console;
+namespace Exercise5A
+{
+  class CheckMonth
+  {
+    static void Main(string[] args)
+    {
+      // Varibale Declaration
+      int inputMonth;
+      
+      //Get the month number for the user (User input)
+      Write("Enter month number >> ");
+      inputMonth = int.Parse(ReadLine());
+      
+      //Test: if the month number is between 1 and 12 (inclusive)
+      if( (inputMonth > 12) || (inputMonth < 1) )
+      {
+        WriteLine("\n{0} is not a valid month", inputMonth);
+      }
+      else
+      {
+       WriteLine("\n{0} is a valid month", inputMonth);
+      }
+      ReadLine(); //System Pause
+    }
+  }
+}
