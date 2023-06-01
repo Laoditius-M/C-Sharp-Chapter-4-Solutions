@@ -1,0 +1,85 @@
+/* Exercise 8 - RockPaperScissors
+In the game Rock Paper Scissors, two players simultaneously choose one of three
+options: rock, paper, or scissors. If both players choose the same option, then
+the result is a tie. However, if they choose differently, the winner is
+determined as follows:
+  • Rock beats scissors, because a rock can break a pair of scissors.
+  • Scissors beats paper, because scissors can cut paper.
+  • Paper beats rock, because a piece of paper can cover a rock.
+Create a game in which the computer randomly chooses rock, paper, or scissors.
+Let the user enter a character, r, p, or s, each representing one of the three
+choices. Then, determine the winner.
+*/
+//Programmer: ProgrammerFromMars
+
+using System;
+using static System.Console;
+namespace Exercise8
+{
+  class RockPaperScissors
+  {
+    static void Main(string[] args)
+    {
+      // Variable Declarations
+      Random ranNumberGenerator = new Random(); //Random method
+      int randomNumber;
+      char computerSelection; 
+      char userSelection;
+      computerSelection = ' ';
+      userSelection = ' ';
+      
+      //Generate random number
+      randomNumber = ranNumberGenerator.Next(1, 4);
+      
+      //Get random selection from computer
+      switch (randomNumber)
+      {
+      case 1:
+        computerSelection = 'r';
+        break;
+      case 2:
+        computerSelection = 'p';
+        break;
+      case 3:
+        computerSelection = 's';
+        break;
+      }
+      
+      //Get user selection (r,p,s)
+      WriteLine(" r - Rock p - Paper s - Scissors ");
+      Write("\nEnter your selection (r,p,s) >> ");
+      userSelection = Char.ToLower(Convert.ToChar(ReadLine()));
+      
+      //Compare userSelection with computerSelection to determine winner
+      if (userSelection == 'r' && computerSelection == 's')
+      {
+        WriteLine("You Win - Rock beats Scissors");
+      }
+      else if (userSelection == 'r' && computerSelection == 'p')
+      {
+        WriteLine("You lose - Paper covers Rock");
+      }
+      else if (userSelection == 'p' && computerSelection == 'r')
+      {
+        WriteLine("You Win - Paper covers Rock");
+      }
+      else if (userSelection == 'p' && computerSelection == 's')
+      {
+        WriteLine("You lose - Scissors cuts Paper");
+      }
+      else if (userSelection == 's' && computerSelection == 'p')
+      {
+        WriteLine("You Win - Scissors cuts Paper");
+      }
+      else if (userSelection == 's' && computerSelection == 'r')
+      {
+        WriteLine("You Lose - Rock beats Scissors");
+      }
+      else
+      {
+        WriteLine("Match Result: DRAW");
+      }
+      ReadLine(); //System Pause
+    }
+  }
+}
