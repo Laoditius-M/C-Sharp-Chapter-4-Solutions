@@ -1,0 +1,45 @@
+/* Exercise 7 - GuessingGame
+Write a program named GuessingGame that generates a random number
+between 1 and 10. 
+(In other words, in the example above, min is 1 and max is 10)
+Ask a user to guess the random number, then display the random number and a
+message indicating whether the user’s guess was too high, too low, or correct.
+*/
+//Programmer: ProgrammerFromMars
+
+using System;
+using static System.Console;
+namespace Exercise7
+{
+  class GuessingGame
+  {
+    static void Main(string[] args)
+    {
+      // Variable Declaration
+      Random rndNumberGenerator = new Random(); //Random number method
+      int randomNumber; 
+      int userGuess;
+      
+      //Generate a random number
+      randomNumber = rndNumberGenerator.Next(1, 11);
+      
+      //Get a number from the user - Change sentinel value (User input)
+      Write("Enter your guess(1-10) >> ");
+      userGuess = Convert.ToInt32(ReadLine());
+      
+      if (userGuess == randomNumber)
+      {
+        WriteLine($"\nCorrect Guess: The number is {randomNumber}.");
+      }
+      else if (userGuess < randomNumber)
+      {
+        WriteLine("\nIncorrect Guess: Your number is too LOW\n");
+      }
+      else
+      {
+        WriteLine("\nIncorrect Guess: Your number is too HIGH\n");
+      }
+      ReadLine(); //System Pause
+    }
+  }
+}
