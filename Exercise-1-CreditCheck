@@ -1,0 +1,38 @@
+/* Exercise 1 - CreditCheck
+  Write a program named CheckCredit that prompts users to enter a purchase price
+  for an item. If the value entered is greater than a credit limit of $8,000,
+  display an error message; otherwise, display Approved.
+  Program Requirement:
+  - Display purchase status (Error or Approved)
+*/
+//Programmer: ProgrammerFromMars
+using System;
+using static System.Console;
+namespace Exercise1
+{
+ class CreditCheck
+ {
+   static void Main(string[] args)
+   {     
+      // Variable declaration
+      const double CREDIT_LIMIT = 8000.00;
+      double purchasePrice;
+      
+      //Get purchasePrice (User input)
+      Write("\nEnter purchase price (R) >> ");
+      purchasePrice = Convert.ToDouble(ReadLine());
+      
+      //Check if purchasePrice is greater than $8000 (Credit limit)
+      if (purchasePrice > CREDIT_LIMIT)
+      {
+         WriteLine("Declined - Insufficient funds");
+      }
+      else
+      {        
+         WriteLine("\nApproved");
+      }
+      WriteLine("\n END ");
+      ReadLine(); //System Pause
+    }
+  }
+}
